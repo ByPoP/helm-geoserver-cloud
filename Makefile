@@ -55,5 +55,4 @@ example-jdbc: example-common
 
 .PHONY: example-pgconfig-acl
 example-pgconfig-acl: example-common
-#	${HELM} dependency update examples/pgconfig-acl
 	${HELM} upgrade --install gs-cloud-pgconfig-acl examples/pgconfig-acl
