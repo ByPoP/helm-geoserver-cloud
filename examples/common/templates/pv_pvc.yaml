@@ -1,6 +1,19 @@
 
 {{- range $key, $definition := .Values.nfs }}
 ---
+# PV {{ print $key }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{$definition.pvname}}
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: {{$definition.storage}}
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: "openebs-kernel-nfs"
+---
 # PVC {{ print $key }}-claim
 apiVersion: v1
 kind: PersistentVolumeClaim
