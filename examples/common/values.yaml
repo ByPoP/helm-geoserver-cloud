@@ -30,7 +30,11 @@ rabbitmq:
     registry: docker.io
     repository: bitnami/rabbitmq
     tag: 3.9.13-debian-10-r14
-
+    
+  extraEnvVars:
+    - name: RABBITMQ_ULIMIT_NOFILES
+      value: null
+      
   auth:
     username: geoserver
     password: password
