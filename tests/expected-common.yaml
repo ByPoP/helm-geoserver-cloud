@@ -378,7 +378,7 @@ spec:
             - name: RABBITMQ_LOGS
               value: "-"
             - name: RABBITMQ_ULIMIT_NOFILES
-              value: "65536"
+              value: null
             - name: RABBITMQ_USE_LONGNAME
               value: "true"
             - name: RABBITMQ_ERL_COOKIE
