@@ -78,24 +78,25 @@ geoservercloud:
       pullPolicy: IfNotPresent
   geoserver:
     ingress:
+      annotations:   # Aggiungi questa sezione se non esiste già
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
+        nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
       enabled: true
       hostGroups:
         host1:
-          annotations:   # Aggiungi questa sezione se non esiste già
-            cert-manager.io/cluster-issuer: "letsencrypt-prod"
-            nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
-            nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
           tls:
             enabled: true
           hosts:
             - geo.ww5.warwide.com
     services:
       gateway:
-        ingress:
+        service:
           annotations:   # Aggiungi questa sezione se non esiste già
             cert-manager.io/cluster-issuer: "letsencrypt-prod"
             nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
             nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
+        ingress:
           enabled: true
         <<: *additional-stuff
       webui:
