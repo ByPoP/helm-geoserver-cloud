@@ -30,5 +30,5 @@ spec:
     requests:
       storage: {{$definition.storage}}
   volumeName: {{$definition.pvname}}
-  storageClassName: ""
+  storageClassName: "openebs-kernel-nfs"
 {{- end }}
