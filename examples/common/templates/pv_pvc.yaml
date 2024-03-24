@@ -11,6 +11,10 @@ spec:
     - ReadWriteMany
   capacity:
     storage: {{$definition.storage}}
+  mountOptions:
+    - nfsvers=4.1
+  nfs:
+    path: {{$definition.path}}
   persistentVolumeReclaimPolicy: Retain
   storageClassName: "openebs-kernel-nfs"
 ---
