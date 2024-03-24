@@ -1,3 +1,14 @@
+make examples-clean
+make dependencies
+make gen-expected
+
+make example-common
+make example-datadir
+make example-statefulset
+make example-jdbc
+make example-pgconfig-acl
+
+
 # Helm chart for GeoServer-Cloud
 
 A Helm chart for GeoServer-Cloud

@@ -17,6 +17,7 @@ spec:
     path: {{$definition.path}}
     server: {{$.Values.nfsserver}}
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: "openebs-kernel-nfs"
 ---
 # PVC {{ print $key }}-claim
 apiVersion: v1
